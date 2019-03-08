@@ -3,6 +3,8 @@ import java.util.*;
 
 public class USACO{
 
+  public int[][] board;
+
   public static void main(String[] args) {
 
   }
@@ -37,19 +39,31 @@ public class USACO{
       }
       else {
         int[][] board = new int[R][C];
-        for (x = 0; x < len; x ++){
-          for (y = 0; y < x.length; y++){
+        int[] placeholder = new int[C];
+        for (int x = 0; x < R; x ++){
+          for (int y = 0; y < C; y++){
             String depths[] = info.split(" ");
-            int depths[] = new int[depths.length];
-            for(int i = 0; i < first.length;i++){
-            values[i] = Integer.parseInt(first[i]);
+            for(int i = 0; i < depths.length;i++){
+            placeholder[i] = Integer.parseInt(depths[i]);
          }
-         board[x][y]=values[x];
-          //   board[x][y] =
+         board[x][y]=placeholder[x];
           }
         }
       }
     }
-
   }
+  System.out.println(toString(board));
+}
+
+public String toString(int[][]array){
+  String result = "";
+  for (int row = 0; row < array.length; row++){
+    for (int col = 0; col < array[0].length; col++){
+        result += "  " + array[row][col];
+      }
+      result += "\n";
+    }
+    return result;
+  }
+
 }
