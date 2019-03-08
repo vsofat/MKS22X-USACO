@@ -39,7 +39,12 @@ public class USACO{
         int[][] board = new int[R][C];
         for (x = 0; x < len; x ++){
           for (y = 0; y < x.length; y++){
-            Strin
+            String depths[] = info.split(" ");
+            int depths[] = new int[depths.length];
+            for(int i = 0; i < first.length;i++){
+            values[i] = Integer.parseInt(first[i]);
+         }
+         board[x][y]=values[x];
           //   board[x][y] =
           }
         }
