@@ -7,36 +7,35 @@ public class USACO{
     try {
       bronze("testCases/makelake.1.in") ;
     } catch (FileNotFoundException e) {
-      System.out.println("We couldn't find the file! UH OH") ;
-    } catch (Exception e) {
-      System.out.println("There's an exception being thrown but it's not caused by a missing file!") ;
-    }
+      System.out.println("Where's the file?!") ;
+    } /*catch (Exception e) {
+      System.out.println("File is good! But you're not!") ;
+    } */
 
   }
 
   public static int bronze (String filename) throws FileNotFoundException{
     File file = new File (filename);
     Scanner scanner = new Scanner(filename);
+    int R;
+    int C;
+    int E;
+    int N;
+    int[] first = new int[4];
+    for(int index = 0; index < 4;index++){
+      first[index] = Integer.parseInt(scanner.next());
+    }
+    R = first[0];
+    C = first[1];
+    E = first[2];
+    N = first[3];
+    int[][] board = new int[R][C];
     while (scanner.hasNextLine()){
     int len = scanner.nextLine().length();
     String info = scanner.nextLine();
-    int R = 0;
-    int C = 0;
-    int E = 0;
-    int N = 0;
-    int[][] board;
     for (int row = 0; row < len; row++){
       if (row == 0){
-         String first[] = info.split(" "); // R = 0; C = 0; E = 0; N =0
-         int values[] = new int[first.length];
-         for(int i = 0; i < first.length;i++){
-         values[i] = Integer.parseInt(first[i]);
       }
-        R = values[0];
-        C = values[1];
-        E = values[2];
-        N = values[3];
-        }
       else if (row == len-2){
         String instructions1[] = info.split(" ");
       }
@@ -44,7 +43,6 @@ public class USACO{
         String instructions2[] = info.split(" ");
       }
       else {
-        board = new int[R][C];
         int[] placeholder = new int[C];
         for (int x = 0; x < R; x ++){
           for (int y = 0; y < C; y++){
@@ -57,7 +55,7 @@ public class USACO{
         }
       }
     }
-    System.out.println(toString(board));
+  System.out.println(toString(board));
   }
   return 0;
 }
