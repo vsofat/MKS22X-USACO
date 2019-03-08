@@ -3,9 +3,14 @@ import java.util.*;
 
 public class USACO{
 
-  public int[][] board;
-
   public static void main(String[] args) {
+    try {
+      bronze("testCases/makelake.1.in") ;
+    } catch (FileNotFoundException e) {
+      System.out.println("We couldn't find the file! UH OH") ;
+    } catch (Exception e) {
+      System.out.println("There's an exception being thrown but it's not caused by a missing file!") ;
+    }
 
   }
 
@@ -19,6 +24,7 @@ public class USACO{
     int C = 0;
     int E = 0;
     int N = 0;
+    int[][] board;
     for (int row = 0; row < len; row++){
       if (row == 0){
          String first[] = info.split(" "); // R = 0; C = 0; E = 0; N =0
@@ -38,7 +44,7 @@ public class USACO{
         String instructions2[] = info.split(" ");
       }
       else {
-        int[][] board = new int[R][C];
+        board = new int[R][C];
         int[] placeholder = new int[C];
         for (int x = 0; x < R; x ++){
           for (int y = 0; y < C; y++){
@@ -51,11 +57,12 @@ public class USACO{
         }
       }
     }
+    System.out.println(toString(board));
   }
-  System.out.println(toString(board));
+  return 0;
 }
 
-public String toString(int[][]array){
+public static String toString(int[][]array){
   String result = "";
   for (int row = 0; row < array.length; row++){
     for (int col = 0; col < array[0].length; col++){
