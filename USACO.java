@@ -29,6 +29,12 @@ public class USACO{
     C = first[1];
     E = first[2];
     N = first[3];
+
+    System.out.println("value of R: " + R);
+    System.out.println("value of C: " + C);
+    System.out.println("value of E: " + E);
+    System.out.println("value of N: " + N);
+
     int[][] board = new int[R][C];
     //adding the values to the 2D array
     for (int rows = 0 ; rows < R ; rows++) {
@@ -36,6 +42,9 @@ public class USACO{
         board[rows][cols] = Integer.parseInt(input.next()) ;
       }
     }
+
+    System.out.println(toString(board));
+    System.out.println(" 28 25 20 32 34 36 \n 27 25 20 20 30 34 \n 24 20 20 20 20 30 \n  20 20 14 14 20 2");
 
     for (int modify = 0; modify < N; modify++){
       int startRow = Integer.parseInt(input.next()) - 1;
@@ -49,17 +58,27 @@ public class USACO{
             } // we now have a max value
       }
     }
+
     System.out.println("value of max: " + maxVal);
-  }
 
-    System.out.println(toString(board));
-    System.out.println("value of R: " + R);
-    System.out.println("value of C: " + C);
-    System.out.println("value of E: " + E);
-    System.out.println("value of N: " + N);
+    for (int row = 0; row < startRow + 3; row++){
+      for (int col = 0; col < startCol + 3; col++){
+          int diff = maxVal - board[row][col];
+          if (diff < stompVal){
+            board[row][col] = maxVal - stompVal;
+          }
+    }
 
-    return 0;
   }
+    System.out.println(toString(board)); // should be modified
+
+    System.out.println("\n 28 25 20 32 32 32 \n 27 25 20 20 30 32 \n 24 20 20 20 20 30 \n 20 20 14 14 20 20");
+
+    System.out.println("\n 18 18 18 32 32 32 \n 18 18 18 20 30 32 \n 18 18 18 20 20 30 \n 20 20 14 14 20 20");
+
+  }
+  return 0;
+}
 
   public static String toString(int[][]array){
     String result = "";
