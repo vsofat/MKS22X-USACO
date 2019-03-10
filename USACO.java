@@ -10,7 +10,7 @@ public class USACO{
       System.out.println("Where's the file?!") ;
     }
     catch (Exception e) {
-      System.out.println("File is good! But you're not!") ;
+      System.out.println("File is good! But you're not!" + e) ;
     }
     try {
       System.out.println(bronze("testCases/makelake.2.in")) ;
@@ -18,7 +18,7 @@ public class USACO{
       System.out.println("Where's the file?!") ;
     }
     catch (Exception e) {
-      System.out.println("File is good! But you're not!") ;
+      System.out.println("File is good! But you're not!" + e) ;
     }
     try {
       System.out.println(bronze("testCases/makelake.3.in")) ;
@@ -26,7 +26,7 @@ public class USACO{
       System.out.println("Where's the file?!") ;
     }
     catch (Exception e) {
-      System.out.println("File is good! But you're not!") ;
+      System.out.println("File is good! But you're not!" + e) ;
     }
     try {
       System.out.println(bronze("testCases/makelake.4.in")) ;
@@ -34,7 +34,7 @@ public class USACO{
       System.out.println("Where's the file?!") ;
     }
     catch (Exception e) {
-      System.out.println("File is good! But you're not!") ;
+      System.out.println("File is good! But you're not!" + e) ;
     }
     try {
       System.out.println(bronze("testCases/makelake.5.in")) ;
@@ -42,7 +42,7 @@ public class USACO{
       System.out.println("Where's the file?!") ;
     }
     catch (Exception e) {
-      System.out.println("File is good! But you're not!") ;
+      System.out.println("File is good! But you're not!" + e) ;
     }
   }
 
