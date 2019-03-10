@@ -63,10 +63,10 @@ public class USACO{
     E = first[2];
     N = first[3];
 
-  //  System.out.println("value of R: " + R);
-  //  System.out.println("value of C: " + C);
-  //  System.out.println("value of E: " + E);
-  // System.out.println("value of N: " + N);
+    //  System.out.println("value of R: " + R);
+    //  System.out.println("value of C: " + C);
+    //  System.out.println("value of E: " + E);
+    // System.out.println("value of N: " + N);
 
     int[][] board = new int[R][C];
     //adding the values to the 2D array
@@ -77,7 +77,7 @@ public class USACO{
     }
 
     //System.out.println(toString(board));
-  //  System.out.println(" 28 25 20 32 34 36 \n 27 25 20 20 30 34 \n 24 20 20 20 20 30 \n  20 20 14 14 20 2");
+    //  System.out.println(" 28 25 20 32 34 36 \n 27 25 20 20 30 34 \n 24 20 20 20 20 30 \n  20 20 14 14 20 2");
 
     for (int modify = 0; modify < N; modify++){
       int startRow = Integer.parseInt(input.next()) - 1;
@@ -110,28 +110,35 @@ public class USACO{
             total += E - currentDepth;
           }
         }
-      //  System.out.println("totalDiff is : " + total);
+        //  System.out.println("totalDiff is : " + total);
 
 
-    //  System.out.println(toString(board)); // should be modified
+        //  System.out.println(toString(board)); // should be modified
 
-    //  System.out.println("\n 28 25 20 32 32 32 \n 27 25 20 20 30 32 \n 24 20 20 20 20 30 \n 20 20 14 14 20 20");
+        //  System.out.println("\n 28 25 20 32 32 32 \n 27 25 20 20 30 32 \n 24 20 20 20 20 30 \n 20 20 14 14 20 20");
 
-    //   System.out.println("\n 18 18 18 32 32 32 \n 18 18 18 20 30 32 \n 18 18 18 20 20 30 \n 20 20 14 14 20 20");
+        //   System.out.println("\n 18 18 18 32 32 32 \n 18 18 18 20 30 32 \n 18 18 18 20 20 30 \n 20 20 14 14 20 20");
 
-    }
-    return total * 72 * 72;
-  }
-
-  public static String toString(int[][]array){
-    String result = "";
-    for (int row = 0; row < array.length; row++){
-      for (int col = 0; col < array[0].length; col++){
-        result += "  " + array[row][col];
       }
-      result += "\n";
+      return total * 72 * 72;
     }
-    return result;
-  }
 
-}
+    public static String toString(int[][]array){
+      String result = "";
+      for (int row = 0; row < array.length; row++){
+        for (int col = 0; col < array[0].length; col++){
+          result += "  " + array[row][col];
+        }
+        result += "\n";
+      }
+      return result;
+    }
+
+    public static int silver(String filename) throws FileNotFoundException {
+      File file = new File(filename) ;
+      Scanner input = new Scanner(file) ;
+      return 0;
+    }
+
+
+  }
