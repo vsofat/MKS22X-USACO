@@ -137,6 +137,24 @@ public class USACO{
     public static int silver(String filename) throws FileNotFoundException {
       File file = new File(filename) ;
       Scanner input = new Scanner(file) ;
+
+      int totalRows;
+      int totalCols;
+      int totalTime;
+      int row1;
+      int col1;
+      int row2;
+      int col2;
+
+      int[] first = new int[3];
+      for(int index = 0; index < 3; index++){
+        first[index] = Integer.parseInt(input.next());
+      }
+
+      totalRows = first[0];
+      totalCols = first[1];
+      totalTime = first[2];
+
       return 0;
     }
 
