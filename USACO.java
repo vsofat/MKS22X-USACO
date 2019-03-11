@@ -83,14 +83,14 @@ public class USACO{
 
     //System.out.println(toString(board) + "\n");
 
-    int maxVal = 0;
+
     //System.out.println(" 28 25 20 32 34 36 \n 27 25 20 20 30 34 \n 24 20 20 20 20 30 \n  20 20 14 14 20 2");
 
     for (int modify = 0; modify < N; modify++){
       int startRow = Integer.parseInt(input.next()) - 1;
       int startCol = Integer.parseInt(input.next()) - 1;
       int stompVal = Integer.parseInt(input.next());
-
+      int maxVal = 0;
       //System.out.println("start row is: " + startRow);
       //System.out.println("start col is: " + startCol);
       //System.out.println("stomp val is: " + stompVal);
