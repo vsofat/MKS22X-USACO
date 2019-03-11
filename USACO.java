@@ -4,6 +4,7 @@ import java.util.*;
 public class USACO{
 
   public static void main(String[] args) {
+  /*
     try {
       System.out.println(bronze("testCases/makelake.1.in")) ;
     } catch (FileNotFoundException e) {
@@ -12,6 +13,7 @@ public class USACO{
     catch (Exception e) {
       System.out.println("File is good! But you're not!" + e) ;
     }
+    */ // works
     try {
       System.out.println(bronze("testCases/makelake.2.in")) ;
     } catch (FileNotFoundException e) {
@@ -44,17 +46,20 @@ public class USACO{
     catch (Exception e) {
       System.out.println("File is good! But you're not!" + e) ;
     }
+
   }
 
   public static int bronze (String filename) throws FileNotFoundException{
     File file = new File (filename);
     Scanner input = new Scanner(file);
+
     int R;
     int C;
     int E;
     int N;
     int total = 0;
     int[] first = new int[4];
+
     for(int index = 0; index < 4; index++){
       first[index] = Integer.parseInt(input.next());
     }
@@ -63,10 +68,10 @@ public class USACO{
     E = first[2];
     N = first[3];
 
-    //  System.out.println("value of R: " + R);
-    //  System.out.println("value of C: " + C);
-    //  System.out.println("value of E: " + E);
-    // System.out.println("value of N: " + N);
+    //System.out.println("value of R: " + R);
+    //System.out.println("value of C: " + C);
+    //System.out.println("value of E: " + E);
+    //System.out.println("value of N: " + N);
 
     int[][] board = new int[R][C];
     //adding the values to the 2D array
@@ -76,32 +81,41 @@ public class USACO{
       }
     }
 
-    //System.out.println(toString(board));
-    //  System.out.println(" 28 25 20 32 34 36 \n 27 25 20 20 30 34 \n 24 20 20 20 20 30 \n  20 20 14 14 20 2");
+    //System.out.println(toString(board) + "\n");
+
+    int maxVal = 0;
+    //System.out.println(" 28 25 20 32 34 36 \n 27 25 20 20 30 34 \n 24 20 20 20 20 30 \n  20 20 14 14 20 2");
 
     for (int modify = 0; modify < N; modify++){
       int startRow = Integer.parseInt(input.next()) - 1;
       int startCol = Integer.parseInt(input.next()) - 1;
       int stompVal = Integer.parseInt(input.next());
-      int maxVal = 0;
-      for (int row = 0; row < startRow + 3; row++){
-        for (int col = 0; col < startCol + 3; col++){
+
+      //System.out.println("start row is: " + startRow);
+      //System.out.println("start col is: " + startCol);
+      //System.out.println("stomp val is: " + stompVal);
+
+      for (int row = startRow; row < startRow + 3; row++){
+        for (int col = startCol; col < startCol + 3; col++){
           if (board[row][col] > maxVal){
             maxVal = board[row][col];
           } // we now have a max value
         }
       }
 
-      //System.out.println("value of max: " + maxVal);
+      //System.out.println("current max value is:" + maxVal + "\n");
 
-      for (int row = 0; row < startRow + 3; row++){
-        for (int col = 0; col < startCol + 3; col++){
+      for (int row = startRow; row < startRow + 3; row++){
+        for (int col = startCol; col < startCol + 3; col++){
           int diff = maxVal - board[row][col];
           if (diff < stompVal){
             board[row][col] = maxVal - stompVal;
           }
         }
-      }}
+      }
+
+      //System.out.println(toString(board) + "\n");
+    }
 
       for (int row = 0; row < R; row ++){
         for (int col = 0; col < C; col++){
@@ -110,16 +124,17 @@ public class USACO{
             total += E - currentDepth;
           }
         }
-        //  System.out.println("totalDiff is : " + total);
 
+        //System.out.println("totalDiff is : " + total + "\n");
 
-        //  System.out.println(toString(board)); // should be modified
+        //System.out.println(toString(board)); // should be modified
 
-        //  System.out.println("\n 28 25 20 32 32 32 \n 27 25 20 20 30 32 \n 24 20 20 20 20 30 \n 20 20 14 14 20 20");
+        //System.out.println("\n 28 25 20 32 32 32 \n 27 25 20 20 30 32 \n 24 20 20 20 20 30 \n 20 20 14 14 20 20");
 
-        //   System.out.println("\n 18 18 18 32 32 32 \n 18 18 18 20 30 32 \n 18 18 18 20 20 30 \n 20 20 14 14 20 20");
+        //System.out.println("\n 18 18 18 32 32 32 \n 18 18 18 20 30 32 \n 18 18 18 20 20 30 \n 20 20 14 14 20 20");
 
       }
+
       return total * 72 * 72;
     }
 
@@ -155,6 +170,35 @@ public class USACO{
       totalCols = first[1];
       totalTime = first[2];
 
+      // restrictions
+
+      //(0 < T <= 15)
+      //(2 <= N <= 100; 2 <= M <= 100)
+
+      if (totalRows < 2 || totalRows > 100 || totalCols < 2 || totalCols > 100 || totalTime > 15 || totalTime < 0){
+        throw new IllegalArgumentException("Given restrictions of (2 <= total Rows <= 100; 2 <= total Cols <= 100; 0 < total Time <= 15) was not met by input.");
+      }
+
+      System.out.println("The # of rows for the board are: " + totalRows);
+      System.out.println("The # of columns for the board are: " + totalCols);
+      System.out.println("The total time the moves can take is: " + totalTime);
+
+      int board[][] = new int[totalRows][totalCols];
+
+      input.nextLine();
+/*
+      for (int row = 0; row < totalRows; row++){
+        String current = input.nextLine();
+        for (int col = 0; col < totalCols; col++){
+          if(current.chartAt(col) == '.'){
+            board[row][col] = 1;
+          }
+          else{
+            board[row][col] = 0;
+          }
+        }
+      }
+*/
       return 0;
     }
 
