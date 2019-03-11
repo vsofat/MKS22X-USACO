@@ -184,21 +184,22 @@ public class USACO{
       System.out.println("The total time the moves can take is: " + totalTime);
 
       int board[][] = new int[totalRows][totalCols];
+      String line = "";
 
-      input.nextLine();
-/*
-      for (int row = 0; row < totalRows; row++){
-        String current = input.nextLine();
-        for (int col = 0; col < totalCols; col++){
-          if(current.chartAt(col) == '.'){
-            board[row][col] = 1;
-          }
-          else{
-            board[row][col] = 0;
-          }
+      for (int i = 0; i < totalRows; i ++) {
+      line = input.next();
+      for (int j = 0; j < totalCols; j++) {
+        if(line.charAt(j) == '.') {
+          board[i][j] = 0;
+        }
+        if(line.charAt(j) == '*') {
+          board[i][j] = -1;
         }
       }
-*/
+    }
+
+
+
       return 0;
     }
 
